@@ -31,6 +31,10 @@ const UsuarioSchema = Schema({
         type: Boolean,
         default: false
     },
+    fechaCreacion: {
+        type: Date,
+        default: Date.now //Establece la fecha actual por defecto
+    }
 });
 
 

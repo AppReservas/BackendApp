@@ -3,7 +3,8 @@ const { Schema, model} = require('mongoose');
 const EstablecimientoSchema = Schema({
     nombre: {
         type: String,
-        required: [true, 'El nombre es obiligatorio']
+        required: [true, 'El nombre es obiligatorio'],
+        unique: true
     },
     direccion: {
         type: String,
@@ -26,4 +27,4 @@ const EstablecimientoSchema = Schema({
     
 });
 
-module.exports = model(' Establecimiento', EstablecimientoSchema);  
+module.exports = model('Establecimiento', EstablecimientoSchema);  

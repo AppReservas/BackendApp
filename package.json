@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node app"
+    "start": "node app",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
@@ -22,5 +23,8 @@
     "mongoose": "^5.11.15",
     "pg": "^8.11.3",
     "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
   }
 }

@@ -26,9 +26,10 @@ router.get('/:id',[
     validarCampos,
 ], obtenerEstablecimiento );
 
-// Crear Establecimiento - privado - cualquier persona con un token válido
+// Crear Establecimiento - privado - solo personas admin con un token válido
 router.post('/', [ 
     validarJWT,
+    esAdminRole,
     check('nombre','El nombre es obligatorio').not().isEmpty(),
     check('direccion','La direccion es obligatoria').not().isEmpty(),
     check('telefono','La direccion es obligatorio').not().isEmpty(),
@@ -38,6 +39,7 @@ router.post('/', [
 // Actualizar - privado - cualquiera con token válido
 router.put('/:id',[
     validarJWT,
+    esAdminRole,
     check('nombre','El nombre es obligatorio').not().isEmpty(),
     check('direccion','La direccion es obligatoria').not().isEmpty(),
     check('telefono','La direccion es obligatorio').not().isEmpty(),

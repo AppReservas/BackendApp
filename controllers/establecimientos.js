@@ -36,24 +36,24 @@ const crearEstablecimiento = async(req, res = response ) => {
     const nombre = req.body.nombre.toUpperCase();
 
     const establecimientoDB = await Establecimiento.findOne({ nombre });
-    const establecimientoDB2 = await Establecimiento.findOne({ telefono });
+    // const establecimientoDB2 = await Establecimiento.findOne({ telefono });
 
     if ( establecimientoDB ) {
         return res.status(400).json({
             msg: `El establecimiento ${ establecimientoDB.nombre }, ya existe`
         });
     }
-    if ( establecimientoDB2 ) {
-        return res.status(400).json({
-            msg: `El establecimiento ${ establecimientoDB.telefono }, ya existe`
-        })
-    }
+    // if ( establecimientoDB ) {
+    //     return res.status(400).json({
+    //         msg: `El establecimiento ${ establecimientoDB.telefono }, ya existe`
+    //     })
+    // }
 
     // Generar la data a guardar
     const data = {
         nombre,
-        direccion,
-        telefono,
+        direccion: req.body.direccion,
+        telefono: req.body.telefono,
         usuario: req.usuario._id
     }
 

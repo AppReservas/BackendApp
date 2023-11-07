@@ -1,5 +1,5 @@
 const Role = require('../models/role');
-const { Usuario, Categoria, Producto } = require('../models');
+const { Usuario, Categoria, Producto, Establecimiento, CampoDeportivo } = require('../models');
 
 const esRoleValido = async(rol = 'USER_ROLE') => {
 
@@ -22,7 +22,7 @@ const emailExiste = async( correo = '' ) => {
 
 const existeUsuarioPorId = async( id ) => {
 
-    // Verificar si el correo existe
+    // Verificar si el usuario existe
     const existeUsuario = await Usuario.findById(id);
     if ( !existeUsuario ) {
         throw new Error(`El id no existe ${ id }`);
@@ -34,9 +34,20 @@ const existeUsuarioPorId = async( id ) => {
  */
 const existeCategoriaPorId = async( id ) => {
 
-    // Verificar si el correo existe
+    // Verificar si la categoria existe
     const existeCategoria = await Categoria.findById(id);
     if ( !existeCategoria ) {
+        throw new Error(`El id no existe ${ id }`);
+    }
+}
+/**
+ * Establecimientos
+ */
+const existeEstablecimientoPorId = async( id ) => {
+
+    // Verificar si el establecimiento exitste
+    const existeEstablecimiento = await Establecimiento.findById(id);
+    if ( !existeEstablecimiento ){
         throw new Error(`El id no existe ${ id }`);
     }
 }
@@ -46,9 +57,21 @@ const existeCategoriaPorId = async( id ) => {
  */
 const existeProductoPorId = async( id ) => {
 
-    // Verificar si el correo existe
+    // Verificar si el producto existe
     const existeProducto = await Producto.findById(id);
     if ( !existeProducto ) {
+        throw new Error(`El id no existe ${ id }`);
+    }
+}
+
+/**
+ * Escenarios Deportivos
+ */
+const existeCampoDeportivoPorId = async( id ) => {
+
+    // Verificar si el producto existe
+    const existeCampoDeportivo = await CampoDeportivo.findById(id);
+    if ( !existeCampoDeportivo ) {
         throw new Error(`El id no existe ${ id }`);
     }
 }
@@ -70,7 +93,9 @@ module.exports = {
     esRoleValido,
     emailExiste,
     existeUsuarioPorId,
+    existeEstablecimientoPorId,
     existeCategoriaPorId,
+    existeCampoDeportivoPorId,
     existeProductoPorId,
     coleccionesPermitidas
 }
