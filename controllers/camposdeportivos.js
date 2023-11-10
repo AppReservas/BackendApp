@@ -38,7 +38,7 @@ const crearCampoDeportivo = async( req, res = response ) => {
 
     if ( campoDeportivoDB ) {
         return res.status(400).json({
-            msg: `El producto ${ campoDeportivoDB.nombre }, ya existe`
+            msg: `El esceneario deportivo ${ campoDeportivoDB.nombre }, ya existe`
         });
     }
 
