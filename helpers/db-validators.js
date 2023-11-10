@@ -1,5 +1,5 @@
 const Role = require('../models/role');
-const { Usuario, Categoria, Producto, Establecimiento, CampoDeportivo } = require('../models');
+const { Usuario, Categoria, Producto, Establecimiento, CampoDeportivo, Deporte } = require('../models');
 
 const esRoleValido = async(rol = 'USER_ROLE') => {
 
@@ -77,6 +77,19 @@ const existeCampoDeportivoPorId = async( id ) => {
 }
 
 /**
+ * Deportes
+ */
+const existeDeportePorId = async( id ) => {
+
+    // Verificar si el deporte existe
+    const existeDeporte = await Deporte.findById(id);
+    if ( !existeDeporte ) {
+        throw new Error(`El id no existe ${ id }`);
+    }
+}
+
+
+/**
  * Validar colecciones permitidas
  */
 const coleccionesPermitidas = ( coleccion = '', colecciones = []) => {
@@ -95,6 +108,7 @@ module.exports = {
     existeUsuarioPorId,
     existeEstablecimientoPorId,
     existeCategoriaPorId,
+    existeDeportePorId,
     existeCampoDeportivoPorId,
     existeProductoPorId,
     coleccionesPermitidas

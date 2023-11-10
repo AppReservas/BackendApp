@@ -15,8 +15,9 @@ class Server {
         this.paths = {
             auth:               '/api/auth',
             buscar:             '/api/buscar',
+            camposdeportivos:   '/api/camposdeportivos',
             categorias:         '/api/categorias',
-            establecimientos:   'api/establecimientos',
+            establecimientos:   '/api/establecimientos',
             productos:          '/api/productos',
             usuarios:           '/api/usuarios',
             uploads:            '/api/uploads',
@@ -62,8 +63,9 @@ class Server {
         
         this.app.use( this.paths.auth, require('../routes/auth'));
         this.app.use( this.paths.buscar, require('../routes/buscar'));
+        this.app.use( this.paths.camposdeportivos, require('../routes/camposdeportivos'));
         this.app.use( this.paths.categorias, require('../routes/categorias'));
-        this.app.use( this.paths.establecimientos, require('../routes/establecimientos'))
+        this.app.use( this.paths.establecimientos, require('../routes/establecimientos'));
         this.app.use( this.paths.productos, require('../routes/productos'));
         this.app.use( this.paths.usuarios, require('../routes/usuarios'));
         this.app.use( this.paths.uploads, require('../routes/uploads'));

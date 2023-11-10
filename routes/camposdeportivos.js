@@ -5,7 +5,7 @@ const { validarJWT, validarCampos, esAdminRole } = require('../middlewares');
 
 const {obtenerCamposDeportivos, obtenerCampoDeportivo, crearCampoDeportivo, actualizarCampoDeportivo, borrarCampoDeportivo,} = require('../controllers/camposdeportivos');
 
-const { existeEstablecimientoPorId, existeCampoDeportivoPorId} = require('../helpers/db-validators');
+const { existeEstablecimientoPorId, existeCampoDeportivoPorId, existeDeportePorId } = require('../helpers/db-validators');
 
 const router = Router();
 
