@@ -17,7 +17,7 @@ const obtenerEstablecimientos = async(req, res = response ) => {
 
     res.json({
         total,
-        categorias
+        establecimientos
     });
 }
 
