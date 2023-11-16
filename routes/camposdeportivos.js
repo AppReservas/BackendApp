@@ -25,6 +25,7 @@ router.get('/:id', [
 
 //Crear Campo deṕortivo - privado - persona admin con un token válido
 router.post('/', [
+    validarJWT,
     check('nombre', 'El nombre es obligatorio').not().isEmpty(),
     check('establecimiento', 'No es un id de Mongo').isMongoId(),
     check('establecimiento').custom( existeEstablecimientoPorId),
@@ -36,6 +37,11 @@ router.post('/', [
 //Actualizar campo deportivo - persona con rol admin con token valido
 router.put('/:id', [
     validarJWT,
+    check('nombre', 'El nombre es obligatorio').not().isEmpty(),
+    check('establecimiento', 'No es un id de Mongo').isMongoId(),
+    check('establecimiento').custom( existeEstablecimientoPorId),
+    check('deporte', 'No es un id de Mongo').isMongoId(),
+    check('deporte').custom( existeDeportePorId ),
     check('id').custom(existeCampoDeportivoPorId),
     validarCampos
 ], actualizarCampoDeportivo);

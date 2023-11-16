@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 
 const DeporteSchema = Schema({
-    nombre: {
+    deporte: {
         type: String,
         required: [true, 'El nombre es obiligatorio'],
     }

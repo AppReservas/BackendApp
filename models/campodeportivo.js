@@ -19,6 +19,9 @@ const CampoDeportivoSchema = Schema({
         type: Number,
         required: [true, 'La capacidad de la cancha es necesaria'],
     },
+    img: {
+        type: String
+    },
     estado: {
         type: Boolean,
         default: true,

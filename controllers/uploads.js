@@ -7,7 +7,7 @@ cloudinary.config( process.env.CLOUDINARY_URL );
 const { response } = require('express');
 const { subirArchivo } = require('../helpers');
 
-const { Usuario, Producto } = require('../models');
+const { Usuario, Producto, Establecimiento, CampoDeportivo } = require('../models');
 
 
 const cargarArchivo = async(req, res = response) => {
@@ -52,6 +52,24 @@ const actualizarImagen = async(req, res = response ) => {
                 });
             }
         
+        break;
+
+        case 'campodeportivos':
+            modelo = await CampoDeportivo.findById(id);
+            if(!modelo) {
+                return res.status(400).json({
+                    msg: `No existe un campo deportivo con el id ${id}`
+                });
+            }
+        break;
+
+        case 'establecimientos':
+            modelo = await Establecimiento.findById(id);
+            if(!modelo) {
+                return res.status(400).json({
+                    msg: `No existe un establecimiento con el id ${id}`
+                });
+            }
         break;
     
         default:
@@ -106,6 +124,24 @@ const actualizarImagenCloudinary = async(req, res = response ) => {
             }
         
         break;
+
+        case 'campodeportivos':
+            modelo = await CampoDeportivo.findById(id);
+            if(!modelo) {
+                return res.status(400).json({
+                    msg: `No existe un campo deportivo con el id ${id}`
+                });
+            }
+        break;
+
+        case 'establecimientos':
+            modelo = await Establecimiento.findById(id);
+            if(!modelo) {
+                return res.status(400).json({
+                    msg: `No existe un establecimiento con el id ${id}`
+                });
+            }
+        break;
     
         default:
             return res.status(500).json({ msg: 'Se me olvidó validar esto'});
@@ -158,6 +194,24 @@ const mostrarImagen = async(req, res = response ) => {
                 });
             }
         
+        break;
+
+        case 'campodeportivos':
+            modelo = await CampoDeportivo.findById(id);
+            if(!modelo) {
+                return res.status(400).json({
+                    msg: `No existe un campo deportivo con el id ${id}`
+                });
+            }
+        break;
+
+        case 'establecimientos':
+            modelo = await Establecimiento.findById(id);
+            if(!modelo) {
+                return res.status(400).json({
+                    msg: `No existe un establecimiento con el id ${id}`
+                });
+            }
         break;
     
         default:

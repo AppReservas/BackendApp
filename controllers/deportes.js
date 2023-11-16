@@ -25,18 +25,18 @@ const getDeporteById = async(req, res = response) => {
 }
 
 const createDeporte = async( req, res = response) => {
-    const nombre = req.body.nombre.toUpperCase();
+    const nombre = req.body.deporte.toUpperCase();
 
     const deporteDB = await Deporte.findOne({nombre});
 
     if ( deporteDB ){
         return res.status(400).json({
-            msg: `El deporte ${ deporteDB.nombre }, ya existe`
+            msg: `El deporte ${ deporteDB.deporte }, ya existe`
         });
     }
 
     const data = {
-        nombre
+        deporte: nombre 
     }
     const deporte = new Deporte( data );
 
